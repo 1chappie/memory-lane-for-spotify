@@ -1,2 +1,2 @@
-# memory-lane-for-spotify
+# Nostalgify
 ReactJS platform for navigating liked songs on Spotify.
