@@ -1,0 +1,62 @@
+
+.modal {
+    font-family: 'Figtree', sans-serif;
+    position: fixed;
+    width: 400px;
+    z-index: 1040;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 15px 0px rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    user-select: none;
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 1040;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.5;
+    user-select: none;
+}
+
+.modal-title {
+    font-family: 'Figtree Bold', sans-serif;
+    font-size: 1.25rem;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-desc,
+.modal-header,
+.modal-footer {
+    padding: 12px;
+}
+
+.close-button {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 0;
+    color: #000;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+a{
+    color: #069135;
+    text-decoration: none;
+}
+
+*:focus-visible {
+    outline: none;
+}

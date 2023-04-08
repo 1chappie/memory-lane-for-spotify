@@ -1,0 +1,47 @@
+.landing{
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header>h1{
+    font-size: 4rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    font-family: 'Figtree Bold', sans-serif;
+}
+
+.header>p{
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    padding: 0 1rem 1rem;
+    font-family: 'Figtree', sans-serif;
+}
+
+.loginButton{
+    background-color: #1DB954;
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: all ease-in-out 0.3s;
+    font-family: 'Figtree', sans-serif;
+    width: 30%;
+}
+
+.loginButton:hover{
+    background-color: #1c9647;
+    border-radius: 0;
+    /*width: 100%;*/
+    box-shadow: 10px 15px 0px rgb(0, 0, 0);
+
+}
