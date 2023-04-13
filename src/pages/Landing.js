@@ -1,5 +1,5 @@
 // landing page for logging into spotify
-import {authLink} from "../backend/Auth";
+import {authLink} from "../api/Auth";
 import "./Landing.css";
 import Footer from "../components/Footer";
 
