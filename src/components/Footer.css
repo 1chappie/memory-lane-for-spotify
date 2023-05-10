@@ -1,19 +1,16 @@
-/* The footerContainer contains the footerbar and on top of the footer bar sometimes there could exist one more footerItem, so the divs should sit on top  of eacho other*/
 .footerContainer {
     background-color: rgba(255, 255, 255, 0);
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     height: 8rem;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     font-family: 'Figtree', sans-serif;
-    color: #069135;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.76);
 }
 
 .footerBar{
@@ -26,29 +23,25 @@
     flex-direction: row;
 }
 
-.footerCredits{
-    color: black;
-    margin: 0 1rem;
-    padding: 5px;
-}
-
 .footerItem{
     margin: 0 1rem;
-    cursor: pointer;
-    padding: 5px;
+    padding: 10px;
     transition: all ease-in-out 0.15s;
 }
 
-.footerItem:hover{
-    box-shadow: 5px 10px 0px rgb(0, 0, 0);
+.clickable{
+    cursor: pointer;
+}
+
+.clickable:hover{
     color: white;
     background-color: #1DB954;
 }
 
 .logoutButton{
     cursor: pointer;
-    background-color: #1DB954;
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000000;
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -59,9 +52,5 @@
 }
 
 .logoutButton:hover{
-    background-color: #1c9647;
     border-radius: 0;
-    /*width: 100%;*/
-    box-shadow: 10px 15px 0px rgb(0, 0, 0);
-
 }

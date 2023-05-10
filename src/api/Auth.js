@@ -21,7 +21,7 @@ let token = {
 
 let authLink = 'https://accounts.spotify.com/authorize?' + queryString.stringify({
     response_type: 'token',
-    scope: 'user-read-private user-read-email user-read-playback-state user-library-read',
+    scope: 'user-read-private user-read-email user-library-read playlist-modify-public playlist-modify-private',
     client_id: process.env.REACT_APP_CLIENT_ID,
     redirect_uri: process.env.REACT_APP_REDIRECT_URI
 });

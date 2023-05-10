@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import Wrong from "../components/flowStates/404";
 import "./Selector.css"
 import Playlist from "./Playlist";
+import back_arrow from "../assets/left_arrow.png";
 
 let isLoading, setIsLoading;
 
@@ -46,7 +47,7 @@ function SeasonSelector() {
         let arr = [];
         arr.push(
             <Link to={"/timeline"} key={"back"} className={"selectorButton"}>
-                Back
+                <img src={back_arrow} alt={"back"} className={"back"}/>
             </Link>
         )
         for (let i = start; i <= end; i++) {

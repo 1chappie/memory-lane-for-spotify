@@ -10,7 +10,6 @@ function App() {
         if (flow.callback()) {
             console.log("Callback");
             token.grab();
-            // window.location.reload();
         }
     }, [])
 

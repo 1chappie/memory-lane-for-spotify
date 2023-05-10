@@ -4,7 +4,7 @@ import "./Landing.css";
 import Footer from "../components/Footer";
 
 export default function Landing() {
-    return (
+    return <>
         <div className="landing">
             <div className="header">
                 <h1>Nostalgify</h1>
@@ -16,8 +16,7 @@ export default function Landing() {
             <a className="loginButton" href={authLink}>
                 LOG IN WITH SPOTIFY
             </a>
-
-            <Footer/>
         </div>
-    )
+        <Footer/>
+    </>
 }

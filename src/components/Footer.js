@@ -22,10 +22,10 @@ export default function Footer() {
     return (<div className="footerContainer">
             {token.get() && <Logout/>}
             <div className="footerBar">
-                <div className="footerCredits">
+                <div className="footerItem">
                     Made by Ștefan Tănăsescu
                 </div>
-                <div onClick={() => openLink("https://github.com/1chappie/nostalgify")} className="footerItem">
+                <div onClick={() => openLink("https://github.com/1chappie/nostalgify")} className="footerItem clickable">
                     View on GitHub
                 </div>
                 <InfoModal
@@ -41,7 +41,7 @@ export default function Footer() {
                             <a href="https://support.spotify.com/us/article/spotify-on-other-apps/"
                                target="_blank"> removing the application from your Spotify account</a>.
                         </div>}
-                    divClass={"footerItem"}
+                    divClass={"footerItem clickable"}
                     divText={"Privacy Policy"}
                 />
                 <InfoModal
@@ -59,7 +59,7 @@ export default function Footer() {
                                 on <a href="https://www.github.com/1chappie" target="_blank">GitHub</a>.
                             </p>
                         </div>}
-                    divClass={"footerItem"}
+                    divClass={"footerItem clickable"}
                     divText={"Contact"}
                 />
             </div>

@@ -1,39 +1,95 @@
-/*.playlist{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background-color: #121212;*/
-/*    overflow: hidden;*/
-/*}*/
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    min-width:450px;
+    height: 70%;
+    margin: 1rem 0;
+    border-radius: 15px;
+    overflow: clip;
+    flex-grow: 1;
+}
 
-/*.trackList{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    width: 60%;*/
-/*    height: 100%;*/
-/*    overflow-y: scroll;*/
-/*    overflow-x: hidden;*/
-/*    scrollbar-width: none;*/
-/*    -ms-overflow-style: none;*/
-/*}*/
+.titleBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #1f1740;
+    color: #ffffff;
+    /*padding: 0 1rem;*/
+}
 
-/*.track{*/
-/*    width: 100%;*/
-/*    height: 4rem;*/
-/*    background-color: #2a2929;*/
-/*    color: #f0f0f0;*/
-/*    margin: 1rem;*/
-/*    padding: 0 1rem;*/
-/*}*/
+.titleBar h1{
+    font-size: 1.5rem;
+    font-family: 'Figtree Bold', sans-serif;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    color: rgb(255, 255, 255);
+}
 
-/*h1{*/
-/*    font-size: 2rem;*/
-/*    font-family: 'Figtree', sans-serif;*/
-/*    margin: 1rem;*/
-/*    color: #f0f0f0;*/
-/*    width: 100%;*/
-/*    background-color: #082d24;*/
-/*}*/
+.trackList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    background-color: #121212;
+    color: rgba(255, 255, 255, 0.63);
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.backArrow{
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.71);
+    border-radius: 100%;
+    /*padding: 0.1rem;*/
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin-right: 1rem;*/
+}
+
+.backArrow>img{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.titlebarElements{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.saveButton{
+    cursor: pointer;
+    width: 12rem;
+    height: 2.5rem;
+    background-color: #1DB954;
+    border: 0;
+    border-radius: 25px;
+    padding: 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 550;
+}
+
+.saveButton:hover{
+    background-color: #1ed760;
+}
+
+.saveButton img{
+    height: 55%;
+    margin: 0 0.5rem 0 0;
+}

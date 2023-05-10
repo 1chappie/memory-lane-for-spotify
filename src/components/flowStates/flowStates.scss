@@ -1,0 +1,64 @@
+.sys{
+    margin: 2rem;
+    font-family: 'Figtree Bold', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.loading {
+    height: 30px;
+    width: 100px;
+}
+
+
+body {
+    display: grid;
+    place-items: center;
+    margin:0;
+    padding:0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    animation: spin 1.4s linear infinite;
+}
+
+.parent{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.ring {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    stroke-dasharray: 60 440;
+    stroke-dashoffset: -500;
+    stroke-width: 10px;
+    animation: shift 3.2s ease-in-out infinite;
+}
+.ring:nth-child(3) {
+    stroke-width: 12px;
+    opacity: 0.4;
+}
+
+@keyframes shift {
+    0%    {}
+    50% 	{stroke-dasharray: 400 100;
+        stroke-dashoffset: -350;}
+    100%  {}
+}
+
+@keyframes shift-test {
+    to {stroke-dashoffset: 0;}
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
