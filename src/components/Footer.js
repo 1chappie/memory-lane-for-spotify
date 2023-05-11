@@ -40,6 +40,8 @@ export default function Footer() {
                             You may revoke Nostalgify's access at any time by
                             <a href="https://support.spotify.com/us/article/spotify-on-other-apps/"
                                target="_blank"> removing the application from your Spotify account</a>.
+                            All copyrighted content (i.e. album artwork) are owned by their respective owners.
+                            Nostalgify is in no way affiliated with Spotify.
                         </div>}
                     divClass={"footerItem clickable"}
                     divText={"Privacy Policy"}

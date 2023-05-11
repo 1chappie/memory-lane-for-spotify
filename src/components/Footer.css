@@ -1,5 +1,4 @@
 .footerContainer {
-    background-color: rgba(255, 255, 255, 0);
     position: relative;
     height: 8rem;
     width: 100%;
@@ -53,4 +52,22 @@
 
 .logoutButton:hover{
     border-radius: 0;
+}
+@media only screen and (max-width: 600px) {
+    .footerContainer{
+        height: 10rem;
+        width: 100%;
+        margin-bottom: 5%;
+        margin-top: 10%;
+    }
+    .footerBar{
+        bottom: 0;
+        height: 80%;
+        flex-direction: column;
+    }
+    .footerItem{
+        margin: 0 1rem;
+        padding: 5px;
+        transition: all ease-in-out 0.15s;
+    }
 }

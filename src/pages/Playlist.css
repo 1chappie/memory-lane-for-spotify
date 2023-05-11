@@ -19,7 +19,6 @@
     padding: 0.8rem;
     background-color: #1f1740;
     color: #ffffff;
-    /*padding: 0 1rem;*/
 }
 
 .titleBar h1{
@@ -38,8 +37,8 @@
     width: 100%;
     background-color: #121212;
     color: rgba(255, 255, 255, 0.63);
-    overflow: scroll;
-    scrollbar-width: none;
+    overflow-x: clip;
+    overflow-y: scroll;
 }
 
 .backArrow{
@@ -92,4 +91,20 @@
 .saveButton img{
     height: 55%;
     margin: 0 0.5rem 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .mainContainer{
+        width: 100%;
+        min-width: auto;
+        height: 70%;
+        margin: 0;
+        border-radius: 0;
+        overflow: clip;
+        flex-grow: 1;
+    }
+
+    .trackList{
+        padding: 1rem 0;
+    }
 }

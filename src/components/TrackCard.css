@@ -77,3 +77,13 @@
     justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .albumInfo{
+        display: none;
+    }
+
+    .cardContainer{
+        justify-content: space-evenly;
+        padding: 0.3rem 0 0.3rem;
+    }
+}

@@ -26,7 +26,7 @@ export class Spotify {
     static latestTf = null;
 
     static async initialize(token) {
-        this.spotifyApi.setAccessToken(token);
+        await this.spotifyApi.setAccessToken(token);
         let data = await this.spotifyApi.getMySavedTracks({limit: 1, offset: 0});
         this.librarySize = data.total;
         this.latestTf = Timeframe.fromDateString(data.items[0].added_at);
@@ -102,39 +102,46 @@ export class Spotify {
 
     static async getTracksByTimeframe(timeframe) {
         this.clearCache();
-        console.log("Cleared cache");
+        console.log("cleared cache");
         if (timeframe.compareTo(this.earliestTf) < 0 || timeframe.compareTo(this.latestTf) > 0) {
-            console.log("Timeframe out of bounds");
+            console.log("timeframe out of bounds");
             return;
         }
-        console.log("Library size: " + this.librarySize);
-        console.log("Starting year: " + this.earliestTf.year);
-        console.log("Timeframe: " + timeframe.year + " " + timeframe.season);
+        console.log("library size: " + this.librarySize);
+        console.log("starting year: " + this.earliestTf.year);
+        console.log("timeframe: " + timeframe.year + " " + timeframe.season);
         this.cachedOffset = timeframe.estimateOffset(this.librarySize, this.earliestTf, this.latestTf);
-        console.log("Estimated offset: " + this.cachedOffset);
+        console.log("estimated offset: " + this.cachedOffset);
         let data = await this.spotifyApi.getMySavedTracks({limit: 50, offset: this.cachedOffset});
         let batch = data.items;
         let batchPosition = Timeframe.batchPosition(batch, timeframe);
 
         switch (batchPosition) {
             case BATCH_IS.OLD_LEFT:
+                console.log("is to the left")
                 await this.iterateBatches(batchPosition, BATCH_IS.NEW_RIGHT, batch, timeframe);
                 break;
 
             case BATCH_IS.NEW_RIGHT:
+                console.log("is to the right")
                 await this.iterateBatches(batchPosition, BATCH_IS.OLD_LEFT, batch, timeframe);
                 break;
 
             case BATCH_IS.WITHIN:
+                console.log("is within");
                 let initialOffset = this.cachedOffset;
                 batchPosition = BATCH_IS.OLD_LEFT;
                 await this.iterateBatches(batchPosition, BATCH_IS.NEW_RIGHT, batch, timeframe);
                 this.cachedOffset = initialOffset + 50;
+                await this.spotifyApi.getMySavedTracks({limit: 50, offset: this.cachedOffset}).then(
+                    (data) => {batch=data.items}
+                );
                 batchPosition = BATCH_IS.NEW_RIGHT;
                 await this.iterateBatches(batchPosition, BATCH_IS.OLD_LEFT, batch, timeframe);
                 break;
 
             case BATCH_IS.OVER:
+                console.log("is over")
                 this.cacheMatching(batch, timeframe);
                 break;
         }
@@ -151,7 +158,7 @@ export class Spotify {
     }
 
     static async iterateBatches(fromState, towardsState, batch, timeframe) {
-        console.log("Iterating batches, batch is " + fromState + ", end is " + towardsState + ".");
+        console.log("iterating batches, from direction " + fromState + ", towards " + towardsState + ".");
         let direction = (fromState === BATCH_IS.OLD_LEFT) ? -1 : 1;
         while (fromState !== towardsState) {
             this.cacheMatching(batch, timeframe);
@@ -185,8 +192,8 @@ export class Spotify {
                     ));
             }
         }
-        console.log("Cached " + valid + " tracks");
-        console.log("Offset when cached: ", this.cachedOffset);
+        console.log("cached " + valid + " tracks");
+        console.log("offset when cached: ", this.cachedOffset);
         console.log(this.cachedTracks);
     }
 }

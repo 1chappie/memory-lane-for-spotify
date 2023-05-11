@@ -9,7 +9,6 @@
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 20px;
-    box-shadow: 10px 15px 0px rgb(0, 0, 0);
     padding: 1rem 1rem;
     user-select: none;
 }
@@ -59,4 +58,10 @@ a{
 
 *:focus-visible {
     outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .modal {
+        width: 80%;
+    }
 }

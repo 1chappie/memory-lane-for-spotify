@@ -67,7 +67,7 @@ export class Timeframe {
 
     estimateOffset(librarySize, earliestTf, latestTf) {
         let totalSeasons = earliestTf.diff(latestTf);
-        console.log("Total seasons: ", totalSeasons);
+        console.log("total seasons: ", totalSeasons);
         if (totalSeasons == 0 || librarySize <= 50) return 0;
         let tracksPerSeason = librarySize / totalSeasons;
         let seasonsOffset = this.diff(earliestTf);
@@ -101,18 +101,14 @@ export class Timeframe {
         let batchLeftOld = moment.utc(batch[batch.length - 1].added_at);
         let [limitLeftOld, limitRightRecent] = timeframe.toDates();
         // the more left something is, the older it is, IMPORTANT
-        console.log("Batch bounds: ", batchLeftOld.format('D M Y'), batchRightRecent.format('D M Y'));
+        console.log("batch bounds: ", batchLeftOld.format('D M Y'), batchRightRecent.format('D M Y'));
         if (batchLeftOld.isBefore(limitLeftOld)){
-            console.log("is before", limitLeftOld.format('D M Y'));
             return BATCH_IS.OLD_LEFT;
-        } else if (batchRightRecent>=limitRightRecent && batchLeftOld<=limitLeftOld) {
-            console.log("batch is within", limitLeftOld.format('D M Y'), limitRightRecent.format('D M Y'));
+        } else if (batchRightRecent<=limitRightRecent && batchLeftOld>=limitLeftOld) {
             return BATCH_IS.WITHIN;
         } else if (batchRightRecent.isAfter(limitRightRecent)) {
-            console.log("is after", limitRightRecent.format('D M Y'));
             return BATCH_IS.NEW_RIGHT;
         } else {
-            console.log("batch is over")
             return BATCH_IS.OVER;
         }
     }
